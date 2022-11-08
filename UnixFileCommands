@@ -1,0 +1,26 @@
+cal           --calender                                 
+mkdir         --create directory
+cd            --change directory
+pwd           --print working directory
+ls            --list (blue color directory, white color files)
+touch filename  --create empty files
+
+cat>filename    --create files andw writes content ctrl D to save content 
+cat filename.txt filename2.txt>filemerge.txt    ---merge contents of files into one file
+cat filemerge.txt        --display file context as is
+tac             --reverse of cat display file cotent in reverse (file2 first/file1 next)
+more            --shows content of file from beginning (Similar to cat, display large content by using Enter,Space Bar)
+
+id              --display id of user/group
+
+clear          --clears the screen
+
+cp            --copy file/directory
+mv            --move files to different dir
+head          --Display first 10 lines of file
+tail          --Display last 10 line of file
+
+grep content filename          --filter to search given pattern in file content, case sensetive
+
+diff          --display differences
+
