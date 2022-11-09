@@ -1,0 +1,256 @@
+[root@host-1-201 linux_commands]# cd ..
+[root@host-1-201 ~]# pwd
+/root
+[root@host-1-201 ~]# clear
+[root@host-1-201 ~]# pwd
+/root
+[root@host-1-201 ~]# mkdir test_dir
+[root@host-1-201 ~]# cd test_dir
+
+[root@host-1-201 test_dir]# touch file1.txt  --creates empty file1.txt
+[root@host-1-201 test_dir]# ls
+file1.txt
+[root@host-1-201 test_dir]# ls -ltr 
+total 0
+-rw-r--r--. 1 root root 0 Nov  8 22:21 file1.txt
+[root@host-1-201 test_dir]# cat file1.txt  --no contents in file so showing this
+[root@host-1-201 test_dir]# cat>file1.txt  --opens file1.txt to write contect, CtrlD for EOF
+Hello Unix
+Welcome Unix
+[root@host-1-201 test_dir]# cat file1.txt
+Hello Unix
+Welcome Unix
+[root@host-1-201 test_dir]# cat>file2.txt
+Hello Test
+Welcome Unix Test
+[root@host-1-201 test_dir]# cat file1.txt file2.txt>file12.txt  --Merges file1 and file2 content to file12.txt
+[root@host-1-201 test_dir]# cat file12.txt
+Hello Unix
+Welcome Unix
+Hello Test
+Welcome Unix Test
+[root@host-1-161 test_dir]# tac file12.txt   --Reverse of CAT, displays content reverse 
+Welcome Unix Test
+Hello Test
+Welcome Unix
+Hello Unix
+
+[root@host-1-161 test_dir]# grep u file1.txt
+[root@host-1-161 test_dir]# grep U file2.txt ---Case Sensetive Search/Filter
+Welcome Unix Test
+[root@host-1-161 test_dir]# grep u file1.txt
+[root@host-1-161 test_dir]# grep U file2.txt
+Welcome Unix Test
+[root@host-1-161 test_dir]# clear
+
+[root@host-1-161 test_dir]# diff file1.txt file2.txt
+1,2c1,2
+< Hello Unix
+< Welcome Unix
+---
+> Hello Test
+> Welcome Unix Test
+[root@host-1-161 test_dir]#
+[root@host-1-161 test_dir]# diff file1.txt file2.txt
+1,2c1,2
+< Hello Unix
+< Welcome Unix
+---
+> Hello Test
+> Welcome Unix Test
+[root@host-1-161 test_dir]# clear
+
+[root@host-1-161 test_dir]# ping google.com
+PING google.com.linuxzoo.net (146.176.166.1) 56(84) bytes of data.
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=1 ttl=63 time=0.379 ms
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=2 ttl=63 time=0.360 ms
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=3 ttl=63 time=0.377 ms
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=4 ttl=63 time=0.317 ms
+^Z                                                                              -- Ctrl Z to Stop
+[1]+  Stopped                 ping google.com
+[root@host-1-161 test_dir]#
+
+[root@host-1-161 test_dir]# ping google.com
+PING google.com.linuxzoo.net (146.176.166.1) 56(84) bytes of data.
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=1 ttl=63 time=0.379 ms
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=2 ttl=63 time=0.360 ms
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=3 ttl=63 time=0.377 ms
+64 bytes from 146.176.166.1 (146.176.166.1): icmp_seq=4 ttl=63 time=0.317 ms
+^Z
+[1]+  Stopped                 ping google.com
+[root@host-1-161 test_dir]# clear
+[root@host-1-161 test_dir]# hostname
+host-1-161.linuxzoo.net
+[root@host-1-161 test_dir]# history
+    1  history -w
+    2  history -w
+    3  pwd
+    4  vi file4.txt
+    5  more file4.txt
+    6  ls -ltr
+    7  mv file4.txt test_dir/*
+    8  mv file4.txt test_dir
+    9  cd test_dir
+   10  ls -ltr
+   11  tac file4.rxt
+   12  pwd
+   13  ls -ltr
+   14  tac file12.txt
+   15  clear
+   16  more file1.txt
+   17  more file2.txt
+   18  cat file1.txt
+   19  cat file2.txt
+   20  clear
+   21  cat file1.txt file2.txt
+   22  cat file12.txt
+   23  tac file12.txt
+   24  grep u file1.txt
+   25  grep U file1.txt
+   26  clear
+   27  grep u file1.txt
+   28  grep U file1.tx
+   29  clear
+   30  grep u file1.txt
+   31  grep U file2.txt
+   32  clear
+   33  diff file1.txt file2.txt
+   34  clear
+   35  ping google.com
+   36  clear
+   37  hostname
+   38  history
+[root@host-1-161 test_dir]#
+
+[root@host-1-161 test_dir]# chmod u=r file2.txt       --user will be given only read permission
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+-r--r--r--. 1 root root  33 Nov  9 02:13 file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+login as: root
+root@linuxzoo.net's password:
+Last login: Tue Nov  8 22:34:26 2022 from hub1-gw.linuxzoo.net
+[root@host-1-161 ~]# pwd
+/root
+[root@host-1-161 ~]# ls
+anaconda-ks.cfg  initial-setup-ks.cfg  linux_commands  test_dir
+[root@host-1-161 ~]# cd test_dir
+[root@host-1-161 test_dir]# ls -ltr
+total 16
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  29 Nov  8 22:22 file2.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+[root@host-1-161 test_dir]# clear
+[root@host-1-161 test_dir]# ls
+file12.txt  file1.txt  file2.txt  file4.txt
+[root@host-1-161 test_dir]# chmod u=r file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+[root@host-1-161 test_dir]# cat file2.txt
+Hello Test
+ksksWelcome Unix Test
+[root@host-1-161 test_dir]# ls -ltr
+total 16
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+-r--r--r--. 1 root root  33 Nov  9 02:13 file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+Hello Test
+Welcome Unix Test
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+E45: 'readonly' option is set (add ! to override)
+
+[root@host-1-161 test_dir]# ls
+file12.txt  file1.txt  file2.txt  file4.txt
+[root@host-1-161 test_dir]# chmod u=r file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+[root@host-1-161 test_dir]# cat file2.txt
+Hello Test
+ksksWelcome Unix Test
+[root@host-1-161 test_dir]# ls -ltr
+total 16
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+-r--r--r--. 1 root root  33 Nov  9 02:13 file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+[root@host-1-161 test_dir]# clear
+[root@host-1-161 test_dir]# chmod u=w file2.txt
+[root@host-1-161 test_dir]# ls -ltr
+total 16
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+--w-r--r--. 1 root root  33 Nov  9 02:13 file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+
+[root@host-1-161 test_dir]# ls
+file12.txt  file1.txt  file2.txt  file4.txt
+[root@host-1-161 test_dir]# chmod u=r file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+[root@host-1-161 test_dir]# cat file2.txt
+Hello Test
+ksksWelcome Unix Test
+[root@host-1-161 test_dir]# ls -ltr
+total 16
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+-r--r--r--. 1 root root  33 Nov  9 02:13 file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+[root@host-1-161 test_dir]# clear
+[root@host-1-161 test_dir]# chmod u=w file2.txt
+[root@host-1-161 test_dir]# ls -ltr
+total 16
+-rw-r--r--. 1 root root  24 Nov  8 22:21 file1.txt
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+--w-r--r--. 1 root root  33 Nov  9 02:13 file2.txt
+[root@host-1-161 test_dir]# vi file2.txt
+[root@host-1-161 test_dir]# cat file2.txt
+Hello Test
+Welcome Unix Test
+[root@host-1-161 test_dir]# nl file2.txt      --line numbers before line
+     1  Hello Test
+     2  Welcome Unix Test
+[root@host-1-161 test_dir]#
+
+[root@host-1-161 test_dir]# wc file2.txt      -- number of lines, number of words, number of characters, file name
+ 2  5 29 file2.txt
+[root@host-1-161 test_dir]#
+
+[root@host-1-161 test_dir]# cat file5.txt
+My Name is KingKong
+My Name is KingKong
+Welcome to Zoo
+Thank you!
+[root@host-1-161 test_dir]# uniq file5.txt      --remove duplicates if in continuous lines
+My Name is KingKong
+Welcome to Zoo
+Thank you!
+[root@host-1-161 test_dir]#
+
+
+
