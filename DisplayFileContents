@@ -1,0 +1,84 @@
+Default value for Head and Tail 10
+
+[root@host-1-161 test_dir]# head -10 cities --displays top 10 lines of file
+Chennai
+Delhi
+Kolkata
+Bihar
+Mumbai
+Pune
+Hyderabad
+Dhanbad
+Lucknow
+Delhi
+
+[root@host-1-161 test_dir]# head -n 10 cities --displays top 10 lines of file same as above
+Chennai
+Delhi
+Kolkata
+Bihar
+Mumbai
+Pune
+Hyderabad
+Dhanbad
+Lucknow
+Delhi
+
+[root@host-1-161 test_dir]# tail -10 cities1  --displays last 10 lines of file
+Khamgaon
+Baramati
+Nanded
+Hariyana
+Bihar
+Uttrakhand
+Jalgaon
+Yerla
+Yeowatmal
+
+[root@host-1-161 test_dir]# tail -n 10 cities1  --displays last 10 lines of file
+Khamgaon
+Baramati
+Nanded
+Hariyana
+Bihar
+Uttrakhand
+Jalgaon
+Yerla
+Yeowatmal
+
+[root@host-1-161 test_dir]# head -10 cities1 | tail -6 cities1 --In between number of lines of files (use pipe function)
+Bihar
+Uttrakhand
+Jalgaon
+Yerla
+Yeowatmal
+
+
+[root@host-1-161 test_dir]# ls -l | head
+total 28
+-rw-r--r--. 1 root root 100 Nov  9 15:44 cities
+-rw-r--r--. 1 root root 322 Nov 10 02:47 cities1
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root  49 Nov  9 02:24 file1.txt
+--w-r--r--. 1 root root  29 Nov  9 02:18 file2.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+-rw-r--r--. 1 root root  66 Nov  9 02:26 file5.txt
+
+[root@host-1-161 test_dir]# ls -l | tail
+total 28
+-rw-r--r--. 1 root root 100 Nov  9 15:44 cities
+-rw-r--r--. 1 root root 322 Nov 10 02:47 cities1
+-rw-r--r--. 1 root root  53 Nov  8 22:23 file12.txt
+-rw-r--r--. 1 root root  49 Nov  9 02:24 file1.txt
+--w-r--r--. 1 root root  29 Nov  9 02:18 file2.txt
+-rw-r--r--. 1 root root 193 Nov  8 22:36 file4.txt
+-rw-r--r--. 1 root root  66 Nov  9 02:26 file5.txt
+
+-- q to exit less END
+
+--Difference between more and less
+more - Forward Direction only
+less - Both direction
+
+
+
