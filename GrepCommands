@@ -1,0 +1,147 @@
+[root@host-1-25 test_dir]# grep "Delhi" cities      --search word in a file (case sensetive)
+Delhi
+Delhi
+Delhi
+[root@host-1-25 test_dir]# grep -i "delhi" cities    --i for search word (case insensetive) in a file
+Delhi
+Delhi
+Delhi
+[root@host-1-25 test_dir]# grep -n "Delhi" cities   --n search word and line number in a file
+2:Delhi
+10:Delhi
+11:Delhi
+[root@host-1-25 test_dir]# grep -c "Delhi" cities     --c seach word and count of word in a file
+3
+[root@host-1-25 test_dir]# grep -v "Delhi" cities     --v Verbose - search all other except given word in command
+Chennai
+Kolkata
+Bihar
+Mumbai
+Pune
+Hyderabad
+Dhanbad
+Lucknow
+Pune
+Amaravati
+Wardha
+[root@host-1-25 test_dir]#
+[root@host-1-25 test_dir]# grep -l "Delhi" cities   --l list files having search word
+cities
+[root@host-1-25 test_dir]#
+
+[root@host-1-25 test_dir]# grep  "^D" cities      --^character search word starting with character
+Delhi
+Dhanbad
+Delhi
+Delhi
+[root@host-1-25 test_dir]# grep "i$" cities       --word$ search word ending with word
+Chennai
+Delhi
+Mumbai
+Delhi
+Delhi
+Amaravati
+[root@host-1-25 test_dir]#
+[root@host-1-25 test_dir]# grep '[A-D]' cities
+Chennai
+Delhi
+Bihar
+Dhanbad
+Delhi
+Delhi
+Amaravati
+[root@host-1-25 test_dir]# grep '[A,B,C,D]' cities
+Chennai
+Delhi
+Bihar
+Dhanbad
+Delhi
+Delhi
+Amaravati
+
+[root@host-1-25 test_dir]# grep '[A,M,D]' cities
+Delhi
+Mumbai
+Dhanbad
+Delhi
+Delhi
+Amaravati
+
+[root@host-1-25 test_dir]# grep '[aieou]' cities
+Chennai
+Delhi
+Kolkata
+Bihar
+Mumbai
+Pune
+Hyderabad
+Dhanbad
+Lucknow
+Delhi
+Delhi
+Pune
+Amaravati
+Wardha
+
+[root@host-1-25 test_dir]# grep '[^aieou]' cities  --search words containing letters in []
+Chennai
+Delhi
+Kolkata
+Bihar
+Mumbai
+Pune
+Hyderabad
+Dhanbad
+Lucknow
+Delhi
+Delhi
+Pune
+Amaravati
+Wardha
+
+[root@host-1-161 test_dir]# grep -e "Delhi" -e "Chennai" cities  --search multiple patterns
+Chennai
+Delhi
+Delhi
+Delhi
+[root@host-1-161 test_dir]#
+
+[root@host-1-161 test_dir]# egrep "(Delhi|Chennai)" cities
+Chennai
+Delhi
+Delhi
+Delhi
+[root@host-1-161 test_dir]# grep "(Delhi|Chennai)" cities
+[root@host-1-161 test_dir]#
+
+
+--DIFFERENCE BETWEEN grep and egrep 
+--grep to understand patterns but not all (eg above grep "(Delhi|Chennai)" cities does not give any result)
+--egrep understands all patterns
+
+[root@host-1-161 test_dir]# grep -F "Delhi    --searching multiple fixed strings/ cannot be used for any patterns/regexp
+> Mumbai
+> Chennai" cities
+Chennai
+Delhi
+Mumbai
+Delhi
+Delhi
+
+[root@host-1-161 test_dir]# fgrep "Delhi
+> Mumbai
+> Chennai" cities
+Chennai
+Delhi
+Mumbai
+Delhi
+Delhi
+
+--Pipe
+[root@host-1-161 test_dir]# cat cities | grep "Delhi"
+Delhi
+Delhi
+Delhi
+[root@host-1-161 test_dir]# ls | grep "^ci"
+cities
+
