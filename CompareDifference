@@ -1,0 +1,60 @@
+[root@host-1-57 test_dir]# cmp file1.txt file2.txt
+file1.txt file2.txt differ: byte 7, line 1
+[root@host-1-57 test_dir]# diff file1.txt file2.txt
+1,4c1,2
+< Hello Unix
+< Hello Unix
+< Welcome Unix
+< welcome unix
+---
+> Hello Test
+> Welcome Unix Test
+[root@host-1-57 test_dir]#
+
+[root@host-1-209 test_dir]# vi emplist1
+[root@host-1-209 test_dir]# vi emplist2
+[root@host-1-209 test_dir]# sort emplist1>emplist1_sorted
+[root@host-1-209 test_dir]# sort emplist2>emplist2_sorted
+[root@host-1-209 test_dir]# cat emplist1
+John
+Tylor
+Angel
+Beck
+David
+Patrick
+[root@host-1-209 test_dir]# cat emplist1_sorted
+Angel
+Beck
+David
+John
+Patrick
+Tylor
+
+[root@host-1-209 test_dir]# cat emplist2
+John
+Patrick
+Zoro
+Mani
+Nancy
+
+[root@host-1-209 test_dir]# cat emplist2_sorted
+
+John
+Mani
+Nancy
+Patrick
+Zoro
+
+[root@host-1-209 test_dir]# comm emplist1_sorted emplist2_sorted
+1stFile 2ndFile Common
+Angel
+Beck
+David
+                John
+        Mani
+        Nancy
+                Patrick
+Tylor
+        Zoro
+[root@host-1-209 test_dir]#
+
