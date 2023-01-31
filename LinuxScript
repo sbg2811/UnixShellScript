@@ -1,0 +1,101 @@
+#https://crontab.guru/ - Job scheduding timing 
+
+#!/usr/bin/bash
+echo  "WELCOME TO LINUX LEARNING $STRING"
+echo "Hi $1 are you living at $2"
+echo "whoami :" $(whoami)
+echo "What do you want learn linux/write code"
+read choice
+echo "You are here to $choice"
+echo "Please enter username"
+read username
+if [ $username ];
+then echo "its correct username $username"
+else echo "username is incorrect"
+fi
+
+***********************************************************************************************************************************************
+alias ipaddress="echo $(ifconfig | grep broadcast | awk '{print $2}')"
+
+***********************************************************************************************************************************************
+set | grep IFS  --Internal Field Seperator
+:~/sari$ IFS=','
+:~/sari$ read var1 var2
+sarika,gadekar
+:~/sari$ echo $var1
+sarika
+:~/sari$ echo $var2
+gadekar
+
+:~/sari$ read x y <<<1,2   --<<< used to pass value to variable in command line
+:~/sari$ echo $x
+1
+:~/sari$ echo $y
+2
+
+***********************************************************************************************************************************************
+cat emp.csv
+name,designation,salary
+John,Engineer,150000
+Ron,Developer,200000
+George,Manager,230000
+Leo,Worker,250000
+
+#!/usr/bin/bash
+
+FILE=${1}
+IFS=$'\n'
+((c=-1))
+((sum=0))
+for line in $(cat ${FILE})
+do
+((c++))
+if ((c==0))
+then
+         continue
+fi
+IFS=','
+read name designation salary<<<${line}
+((sum+=salary))
+cat <<-CLOSE 
+Name is ${name}
+Designation is ${designation}
+Salary is ${salary}
+===============================================
+
+CLOSE
+done
+echo ${sum} ${c}
+
+#Output
+
+Name is John
+Designation is Engineer
+Salary is 150000
+===============================================
+
+Name is Ron
+Designation is Developer
+Salary is 200000
+===============================================
+
+Name is George
+Designation is Manager
+Salary is 230000
+===============================================
+
+Name is Leo
+Designation is Worker
+Salary is 250000
+===============================================
+
+Name is Nano
+Designation is writer
+Salary is 400000
+===============================================
+
+1230000 5
+
+***********************************************************************************************************************************************
+##https://www.youtube.com/watch?v=o9H303Z9ukc
+
